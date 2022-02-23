@@ -1,0 +1,123 @@
+
+R version 4.0.2 (2020-06-22) -- "Taking Off Again"
+Copyright (C) 2020 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin17.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> #Using <- for assigning a vector
+> x <- c(1,2,3,4,5)
+> x
+[1] 1 2 3 4 5
+> 
+> #Using = instead
+> 
+> x = c(1,2,3)
+> x
+[1] 1 2 3
+> 
+> #Using the length function
+> length(x)
+[1] 3
+> 
+> #Using ls to view variables in use
+> ls()
+[1] "x"
+> 
+> y = 2*x
+> y
+[1] 2 4 6
+> #Using ls and then rm to view and remove a variable respectively
+> ls()
+[1] "x" "y"
+> rm(y)
+> 
+> #To remove all at once
+> rm(list = ls())
+> 
+> #If we try to view the variable x using ls(), character(0) will be returned
+> ls()
+character(0)
+> 
+> #Creating a matrix
+> x <- matrix(data = c(1,2,3,4), nrow = 2, ncol = 2)
+> x
+     [,1] [,2]
+[1,]    1    3
+[2,]    2    4
+> 
+> #To have it added in order
+> y <- matrix(data = c(1,2,3,4), nrow = 2, ncol = 2, byrow=TRUE)
+> y
+     [,1] [,2]
+[1,]    1    2
+[2,]    3    4
+> 
+> #Using sqrt for squareroot
+> sqrt(4)
+[1] 2
+> 
+> #Using rnorm to generate random normal variables
+> x <- rnorm(50)
+> x
+ [1]  1.24760631 -0.17293279  0.38686320 -0.57493183 -2.15004277  0.71183338
+ [7] -1.56000831 -0.70261594  0.61180720  0.65947780  2.62258517 -2.57489036
+[13]  0.34964772 -1.48567131  1.04099478 -0.46021651  1.32507520  1.00256297
+[19]  0.22376587 -0.56239727  0.08019366 -0.79969202  1.37590350  0.63020564
+[25]  0.67365678  1.15080552 -0.46200964  1.01555491  0.54397680  1.33528214
+[31]  1.14783669 -0.27908752  1.14944084 -1.95803114  0.62362604  0.37455204
+[37]  0.24009607  0.49409509 -0.11500186  0.88896226 -1.25441404 -0.50489074
+[43] -1.03985214 -0.39490971 -0.80810288  1.42235675  0.74049967 -0.58893071
+[49]  1.67865118  0.49647458
+> y <- x + rnorm(50, mean = 1, sd = .1)
+> y
+ [1]  2.50782244  0.76652262  1.43317872  0.47771431 -1.15831243  1.85444715
+ [7] -0.54752620  0.27823172  1.63890179  1.68885081  3.48276559 -1.57130891
+[13]  1.34077828 -0.51404248  2.02493552  0.30815169  2.34640507  1.95500175
+[19]  1.11513290  0.64394696  1.28085816  0.32911152  2.32435325  1.66492027
+[25]  1.66167473  2.18094227  0.50440694  2.03746474  1.68107805  2.41465216
+[31]  2.12498567  0.66732364  2.21518034 -1.01691885  1.49208562  1.28337944
+[37]  1.25505236  1.50175644  0.85116382  1.96765385 -0.18923737  0.50235884
+[43]  0.02218341  0.45851099  0.28678690  2.43811157  1.62837087  0.46828285
+[49]  2.72189940  1.51837519
+> #Computing correlation between x and y using cor()
+> cor(x,y)
+[1] 0.9963236
+> 
+> #In order to get the same set of random variables, we can set the seed
+> set.seed(3)
+> rnorm(50)
+ [1] -0.96193342 -0.29252572  0.25878822 -1.15213189  0.19578283  0.03012394
+ [7]  0.08541773  1.11661021 -1.21885742  1.26736872 -0.74478160 -1.13121857
+[13] -0.71635849  0.25265237  0.15204571 -0.30765643 -0.95301733 -0.64824281
+[19]  1.22431362  0.19981161 -0.57848372 -0.94230073 -0.20372818 -1.66647484
+[25] -0.48445511 -0.74107266  1.16061578  1.01206712 -0.07207847 -1.13678230
+[31]  0.90062473  0.85177045  0.72771517  0.73650215 -0.35212962  0.70551551
+[37]  1.30035799  0.03825201 -0.97928377  0.79376123  0.78650687 -0.31046313
+[43]  1.69888485 -0.79459371  0.34843772 -2.26540107 -0.16220528  1.13086499
+[49] -0.45554598 -0.89916632
+> 
+> #Using some of the methods that we have just learn
+> set.seed(3)
+> y <- rnorm(100)
+> mean(y)
+[1] 0.01103557
+> var(y)
+[1] 0.7328675
+> sqrt(var(y))
+[1] 0.8560768
+> sd(y)
+[1] 0.8560768
+> 
