@@ -13,6 +13,7 @@ length(x)
 #Using ls to view variables in use
 ls()
 
+#Assigning a variable y
 y = 2*x
 y
 #Using ls and then rm to view and remove a variable respectively
