@@ -1,0 +1,72 @@
+
+R version 4.0.2 (2020-06-22) -- "Taking Off Again"
+Copyright (C) 2020 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin17.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> #Creating x and y variables for a plot
+> x <- rnorm(100)
+> y <- rnorm(100)
+> 
+> #Creating the plot
+> plot(x,y)
+> 
+> #Creating the same plot with custom arguments
+> plot(x, y, xlab = "This is the x-axis", ylab = "This is the y-axis", main = "Plot of x vs y")
+> 
+> #Creating the plot and saving it to a pdf
+> pdf("Figure.pdf")
+> plot(x, y, col = "green")
+> dev.off()
+pdf 
+  2 
+> 
+> #Creating sequences
+> x <- seq(1,10)
+> x
+ [1]  1  2  3  4  5  6  7  8  9 10
+> x <- 1:10
+> x
+ [1]  1  2  3  4  5  6  7  8  9 10
+> x <- seq(-pi, pi, length = 50)
+> x
+ [1] -3.14159265 -3.01336438 -2.88513611 -2.75690784 -2.62867957 -2.50045130
+ [7] -2.37222302 -2.24399475 -2.11576648 -1.98753821 -1.85930994 -1.73108167
+[13] -1.60285339 -1.47462512 -1.34639685 -1.21816858 -1.08994031 -0.96171204
+[19] -0.83348377 -0.70525549 -0.57702722 -0.44879895 -0.32057068 -0.19234241
+[25] -0.06411414  0.06411414  0.19234241  0.32057068  0.44879895  0.57702722
+[31]  0.70525549  0.83348377  0.96171204  1.08994031  1.21816858  1.34639685
+[37]  1.47462512  1.60285339  1.73108167  1.85930994  1.98753821  2.11576648
+[43]  2.24399475  2.37222302  2.50045130  2.62867957  2.75690784  2.88513611
+[49]  3.01336438  3.14159265
+> 
+> #Creating a contour map
+> y <- x
+> f <- outer(x, y, function(x, y) cos(y) / (1 + x^2))
+> contour(x, y, f)
+> contour(x, y, f, nlevels = 45, add = T)
+> #The t function corresponds to transpose
+> fa <- (f-t(f)) / 2
+> contour(x, y, fa, nlevels=15)
+> 
+> #Creating various other plots
+> image(x, y, fa)
+> persp(x, y, fa)
+> persp(x, y, fa, theta = 30)
+> persp(x, y, fa, theta = 30, phi = 20)
+> persp(x, y, fa, theta = 30, phi = 70)
+> persp(x, y, fa, theta = 30, phi = 40)
+> 
