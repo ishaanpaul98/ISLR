@@ -1,0 +1,87 @@
+
+R version 4.0.2 (2020-06-22) -- "Taking Off Again"
+Copyright (C) 2020 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin17.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> #Importing the auto dataset
+> Auto <- read.table("Auto.data")
+> #Viewing the entire dataset
+> View(Auto)
+> #Viewing the first few lines of the dataset
+> head(Auto)
+    V1        V2           V3         V4     V5           V6   V7     V8
+1  mpg cylinders displacement horsepower weight acceleration year origin
+2 18.0         8        307.0      130.0  3504.         12.0   70      1
+3 15.0         8        350.0      165.0  3693.         11.5   70      1
+4 18.0         8        318.0      150.0  3436.         11.0   70      1
+5 16.0         8        304.0      150.0  3433.         12.0   70      1
+6 17.0         8        302.0      140.0  3449.         10.5   70      1
+                         V9
+1                      name
+2 chevrolet chevelle malibu
+3         buick skylark 320
+4        plymouth satellite
+5             amc rebel sst
+6               ford torino
+> 
+> #Fixing the issue of the column headings appearing as entries in the dataset. header is set to True. Missing observations will be marked with a ?
+> Auto <- read.table("Auto.data", header = T, na.strings = "?", stringsAsFactors = T)
+> View(Auto)
+> head(Auto)
+  mpg cylinders displacement horsepower weight acceleration year origin
+1  18         8          307        130   3504         12.0   70      1
+2  15         8          350        165   3693         11.5   70      1
+3  18         8          318        150   3436         11.0   70      1
+4  16         8          304        150   3433         12.0   70      1
+5  17         8          302        140   3449         10.5   70      1
+6  15         8          429        198   4341         10.0   70      1
+                       name
+1 chevrolet chevelle malibu
+2         buick skylark 320
+3        plymouth satellite
+4             amc rebel sst
+5               ford torino
+6          ford galaxie 500
+> 
+> #Importing a dataset with the extension .csv
+> Auto <- read.csv("Auto.csv", na.strings = "?", stringsAsFactors = T)
+> View(Auto)
+> dim(Auto)
+[1] 397   9
+> Auto[1:4,]
+  mpg cylinders displacement horsepower weight acceleration year origin
+1  18         8          307        130   3504         12.0   70      1
+2  15         8          350        165   3693         11.5   70      1
+3  18         8          318        150   3436         11.0   70      1
+4  16         8          304        150   3433         12.0   70      1
+                       name
+1 chevrolet chevelle malibu
+2         buick skylark 320
+3        plymouth satellite
+4             amc rebel sst
+> 
+> #Dealing with missing data
+> #na.omit removes rows that contain missing data
+> Auto <- na.omit(Auto)
+> dim(Auto)
+[1] 392   9
+> 
+> #Viewing column names
+> names(Auto)
+[1] "mpg"          "cylinders"    "displacement" "horsepower"   "weight"      
+[6] "acceleration" "year"         "origin"       "name"        
+> 
